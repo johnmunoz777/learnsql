@@ -1,3 +1,5 @@
+import csv
+from pprint import pprint
 opened_file = open('shakespeare.txt')
 read_file = opened_file.read()
 print(read_file[:100])
@@ -106,3 +108,31 @@ rex=["handy","candy"]
 for a,b in zip(alpha,rex):
     print(a,b)
     
+from csv import reader
+of=open("scientists.csv")
+files=reader(of)
+my_file=list(files)
+print(my_file)
+
+for row in my_file[1:]:
+    print(row[0],row[1],row[2])
+    
+import csv
+
+with open('data_wk1/scientists.csv', 'r') as infile:
+    reader = csv.reader(infile)
+    for line in reader:
+        print(line)
+        
+        
+
+
+with open('scientists.csv', 'r') as infile:
+    reader = csv.DictReader(infile)  
+    for line in reader:
+        pprint(line)
+        
+        
+with open('data_wk1/scientists.csv', 'r') as infile:
+    reader = csv.DictReader(infile) 
+    print(f'Headers: {reader.fieldnames}')
